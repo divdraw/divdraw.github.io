@@ -57,27 +57,35 @@
 		@include icons-sprite(delete_pan);
 		margin-bottom: 0;
 	}
+	&.color-blue{
+		@include icons-sprite(color_blue);
+		&:hover{
+			border-radius: 50%;
+    		box-shadow: 0px 0px 6px 4px #949494;
+		}
+	}
+	&.color-red{
+		@include icons-sprite(color_rad);
+		&:hover{
+			border-radius: 50%;
+    		box-shadow: 0px 0px 6px 4px #949494;
+		}
+	}
+	&.color-green{
+		@include icons-sprite(color_green);
+		margin-bottom: 0;
+		&:hover{
+			border-radius: 50%;
+    		box-shadow: 0px 0px 6px 4px #949494;
+		}
+	}
 }
 // ! TOOLBAR PANEL
 .paint__canvas{
 	width: 95%;
 	height: 100%;
 	background: $CANVAS_COLOR;
-	cursor: url(../img/icons/round_pan_focus.png), pointer;
 	@include stretch($offset-left: false);
-}
-.rd{
-	width: 25px;
-	height: 25px;
-	background:$DRAW_COLOR;
-	@include border-radius(50%);
-	position: absolute;
-}
-.sq{
-	width: 25px;
-	height: 25px;
-	background:$DRAW_COLOR;
-	position: absolute;
 }
 footer{
 	width: 100%;
