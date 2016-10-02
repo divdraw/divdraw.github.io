@@ -1,0 +1,95 @@
+@import "compass";
+@import "compass/layout/stretching";
+@import "compass/utilities/sprites";
+@import "icons/*.png";
+// @include all-icons-sprites;
+@import "variables";
+@import "mixins";
+
+*{
+	@include box-sizing(border-box);
+}
+.clearfix{
+	@include pie-clearfix;
+}
+
+.paint{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	@include bgi("fon.jpg");
+}
+.work_area{
+	@include stretch(2em, 2em, 2em, 2em);
+}
+// TOOLBAR PANEL
+.paint__toolbar{
+	width: 5%;
+	min-width: 45px;
+	height: 100%;
+	border-right: 1px solid $TOOLBAR_BORDER_COLOR;
+	@include background-image(linear-gradient(to right, white, $TOOLBAR_COLOR));
+	@include border-radius(5px 0 0 5px);
+	@include stretch($offset-right: false);
+	z-index: 10;
+}
+.toolbar__elements{
+	width: 45px;
+	margin: 100% auto;
+	background: $TOOLBAR_COLOR;
+	padding: 20px 10px;
+	border-top: 1px solid $TOOLBAR_BORDER_COLOR;
+	border-bottom: 1px solid $TOOLBAR_BORDER_COLOR;
+	@include no-bullets;
+	@include border-radius(20px);
+}
+.toolbar__elements__item{
+	width: 25px;
+	height: 25px;
+	margin-bottom: 20px;
+	&.pan-round{
+		@include icons-sprite(round_pan);
+	}
+	&.pan-squere{
+		@include icons-sprite(square_pan);
+	}
+	&.pan-delete{
+		@include icons-sprite(delete_pan);
+		margin-bottom: 0;
+	}
+}
+// ! TOOLBAR PANEL
+.paint__canvas{
+	width: 95%;
+	height: 100%;
+	background: $CANVAS_COLOR;
+	cursor: url(../img/icons/round_pan_focus.png), pointer;
+	@include stretch($offset-left: false);
+}
+.rd{
+	width: 25px;
+	height: 25px;
+	background:$DRAW_COLOR;
+	@include border-radius(50%);
+	position: absolute;
+}
+.sq{
+	width: 25px;
+	height: 25px;
+	background:$DRAW_COLOR;
+	position: absolute;
+}
+footer{
+	width: 100%;
+	padding: 5px;
+	font-style: italic;
+	color: #9e9c9c;
+	position: absolute;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+
+    & a{
+    	text-decoration: none;
+    	color: #91c3ca;
+    }
+}
