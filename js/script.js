@@ -90,7 +90,7 @@ function getCursor() {
 function controller() {
 	getCursor();
 	if (event.which === 1 && toolbar.activePan === "rd") {
-		canvas.paper.elem.insertAdjacentHTML("beforeEnd", "<circle cx=" + (canvas.cursor.x + "") + "  cy=" + (canvas.cursor.y + "") + "  r=\"12.5\" fill=" + toolbar.color.activeColor + "></circle>");
+		canvas.paper.elem.insertAdjacentHTML("beforeEnd", "<circle cx=" + ((canvas.cursor.x + 12.5) + "") + "  cy=" + ((canvas.cursor.y + 12.5) + "") + "  r=\"12.5\" fill=" + toolbar.color.activeColor + "></circle>");
 	} else if (event.which === 1 && toolbar.activePan === "sq") {
 		canvas.paper.elem.insertAdjacentHTML("beforeEnd", "<rect x=" + (canvas.cursor.x + "") + " y=" + (canvas.cursor.y + "") + " width=\"25\" height=\"25\" fill=" + toolbar.color.activeColor + "></rect>");
 	}
