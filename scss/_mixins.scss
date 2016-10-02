@@ -1,0 +1,10 @@
+
+// BACKGROUND IMAGE
+@mixin bgi($name){
+	@include background(image-url($name));
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+// ! BACKGROUND IMAGE
