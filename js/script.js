@@ -32,15 +32,15 @@ function selectPan() {
 		toolbar.elem.children[i].style.backgroundPosition = "";
 	}
 	if (pan === toolbar.pans.round) {
-		pan.style.backgroundImage = "url(../paint/img/icons/round_pan_focus.png)";
+		pan.style.backgroundImage = "url(../img/icons/round_pan_focus.png)";
 		pan.style.backgroundPosition = "center";
 		toolbar.activePan = "rd";
 	} else if (pan === toolbar.pans.square) {
-		pan.style.backgroundImage = "url(../paint/img/icons/square_pan_focus.png)";
+		pan.style.backgroundImage = "url(../img/icons/square_pan_focus.png)";
 		pan.style.backgroundPosition = "center";
 		toolbar.activePan = "sq";
 	} else if (pan === toolbar.pans.clear) {
-		pan.style.backgroundImage = "url(../paint/img/icons/delete_pan_focus.png)";
+		pan.style.backgroundImage = "url(../img/icons/delete_pan_focus.png)";
 		pan.style.backgroundPosition = "center";
 		toolbar.activePan = "clear";
 		canvas.paper.clear();
@@ -68,22 +68,22 @@ function selectPanColor() {
 
 function getCursor() {
 	if (toolbar.activePan === "rd" && toolbar.color.activeColor === "#37abc8") {
-		canvas.paper.elem.style.cursor = "url(../paint/img/icons/round_pan_focus.png), pointer";
+		canvas.paper.elem.style.cursor = "url(../img/icons/round_pan_focus.png), pointer";
 	}
 	if (toolbar.activePan === "sq" && toolbar.color.activeColor === "#37abc8") {
-		canvas.paper.elem.style.cursor = "url(../paint/img/icons/square_pan_focus.png), pointer";
+		canvas.paper.elem.style.cursor = "url(../img/icons/square_pan_focus.png), pointer";
 	}
 	if (toolbar.activePan === "rd" && toolbar.color.activeColor === "#ff5555") {
-		canvas.paper.elem.style.cursor = "url(../paint/img/icons/color_rad.png), pointer";
+		canvas.paper.elem.style.cursor = "url(../img/icons/color_rad.png), pointer";
 	}
 	if (toolbar.activePan === "sq" && toolbar.color.activeColor === "#ff5555") {
-		canvas.paper.elem.style.cursor = "url(../paint/img/icons/square_red.png), pointer";
+		canvas.paper.elem.style.cursor = "url(../img/icons/square_red.png), pointer";
 	}
 	if (toolbar.activePan === "rd" && toolbar.color.activeColor === "#55ff99") {
-		canvas.paper.elem.style.cursor = "url(../paint/img/icons/color_green.png), pointer";
+		canvas.paper.elem.style.cursor = "url(../img/icons/color_green.png), pointer";
 	}
 	if (toolbar.activePan === "sq" && toolbar.color.activeColor === "#55ff99") {
-		canvas.paper.elem.style.cursor = "url(../paint/img/icons/square_green.png), pointer";
+		canvas.paper.elem.style.cursor = "url(../img/icons/square_green.png), pointer";
 	}
 }
 
@@ -98,11 +98,11 @@ function controller() {
 }
 
 function defaulrToolbarProperty() {
-	toolbar.pans.round.style.backgroundImage = "url(../paint/img/icons/round_pan_focus.png)";
+	toolbar.pans.round.style.backgroundImage = "url(../img/icons/round_pan_focus.png)";
 	toolbar.pans.round.style.backgroundPosition = "center";
 	toolbar.color.blue.style.borderRadius = "50%";
 	toolbar.color.blue.style.boxShadow = "0px 0px 6px 4px #949494";
-	canvas.paper.elem.style.cursor = "url(../paint/img/icons/round_pan_focus.png), pointer";
+	canvas.paper.elem.style.cursor = "url(../img/icons/round_pan_focus.png), pointer";
 }
 
 var canvas = {
