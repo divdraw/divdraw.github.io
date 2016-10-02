@@ -43,21 +43,21 @@ function selectPan() {
 		pan.style.backgroundImage = "url(../paint/img/icons/delete_pan_focus.png)";
 		pan.style.backgroundPosition = "center";
 		canvas.pan = "clear";
+		canvas.paper.clear();
 	}
 }
 
 function controller() {
-	if (event.which === 1 && canvas.pan !== "clear") {
+	if (event.which === 1 && canvas.pan !== "clear" && canvas.pan) {
 		var point = document.createElement("div");
 		point.style.top = canvas.cursor.y + "px";
 		point.style.left = canvas.cursor.x + "px";
 		point.setAttribute("class", canvas.pan);
 		canvas.paper.elem.insertAdjacentElement("afterBegin", point);
-		console.dir(point);
-	} else if (canvas.pan === "clear") {
-		canvas.paper.clear();
+	} else {
+		return;
 	}
-	return;
+
 }
 
 var canvas = {
@@ -78,17 +78,27 @@ var canvas = {
 			return this.elem.getBoundingClientRect().top;
 		},
 		clear: function() {
-			for (var i = 0; i < this.elem.children.length; i++) {
-				this.elem.removeChild(this.elem.children[i]);
-			}
+			var workArea = this.elem.parentElement;
+			workArea.removeChild(this.elem);
+			var newPaper = document.createElement("div");
+			newPaper.setAttribute("id", "canvas");
+			newPaper.setAttribute("class", "paint__canvas");
+			workArea.insertAdjacentElement("beforeEnd", newPaper);
+			this.elem = newPaper;
+			canvas.listener();
 		}
 	},
-	cursor: {
-
+	cursor: {},
+	pan: false,
+	listener: function() {
+		this.paper.elem.addEventListener("click", getCoord);
+		this.paper.elem.addEventListener("click", controller);
+		this.paper.elem.addEventListener("click", controller);
+		this.paper.elem.addEventListener("mousedown", getCoord);
+		this.paper.elem.addEventListener("mousedown", controller);
+		this.paper.elem.addEventListener("mousemove", getCoord);
+		this.paper.elem.addEventListener("mousemove", controller);
 	},
-	pan: {
-
-	}
 }
 var toolbar = {
 	elem: function() {
@@ -106,10 +116,5 @@ var toolbar = {
 		}(),
 	}
 }
-canvas.paper.elem.addEventListener("click", getCoord);
-canvas.paper.elem.addEventListener("click", controller);
-canvas.paper.elem.addEventListener("mousedown", getCoord);
-canvas.paper.elem.addEventListener("mousedown", controller);
-canvas.paper.elem.addEventListener("mousemove", getCoord);
-canvas.paper.elem.addEventListener("mousemove", controller);
+canvas.listener();
 toolbar.elem.addEventListener("click", selectPan);
